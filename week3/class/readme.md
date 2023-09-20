@@ -12,7 +12,7 @@
 
 ## 수직 수평 슬라이드바 만들기(slidebar01.c)
 
-![슬라이드바 이미지1](./img/slidebar1.png) &nasp; ![슬라이드바 이미지2](./img/slidebar2.png)
+![슬라이드바 이미지1](./img/slidebar1.png) &nbsp; ![슬라이드바 이미지2](./img/slidebar2.png)
 
 ## 입력된 숫자 디지털 숫자로 보여주기(numberprint01.c)
 ![숫자 프린트](./img/Numberprint01.png)
