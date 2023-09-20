@@ -40,8 +40,8 @@ void draw_rectangle(int c, int r)
     for(i=1;i<7;i++)
    	b[i]=0xa0+i;
 
-    printf("%c%c",a, b[3]);
-    for(i=0;i<c;i++)
+    printf("%c%c",a, b[3]);  
+    for(i=0;i<=c;i++)
   	printf("%c%c", a, b[1]);
     printf("%c%c", a, b[4]);
     printf("\n");
@@ -54,7 +54,7 @@ void draw_rectangle(int c, int r)
 	printf("\n");
     }
     printf("%c%c", a, b[6]);
-    for(i=0;i<c;i++)
+    for(i=0;i<=c;i++)
 	printf("%c%c", a, b[1]);
     printf("%c%c", a, b[5]);
     printf("\n");
@@ -65,11 +65,11 @@ void draw_horizontal_slide(int x, int y, int length, char *s)
 {
 	int real_length=length/2;
 	gotoxy(1, y);
-	draw_rectangle(real_length+1, 1);
+	draw_rectangle(length+2, 1);
 	gotoxy(x+2, y+1);
 	printf("%s", s);
 	gotoxy(real_length*2+2, y-1);
-	printf("%2d", x);
+	printf("\t%2d", x);
 }
 
 void draw_vertical_slide(int x, int y, int length, char *s)
@@ -79,7 +79,8 @@ void draw_vertical_slide(int x, int y, int length, char *s)
 	gotoxy(x+2, y+1);
 	printf("%s", s);
 	gotoxy(x+6, length+1);
-	printf("%2d", y);
+	printf("\t%2d", y);
+	
 }
 
 void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b)
