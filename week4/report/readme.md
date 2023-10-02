@@ -1,7 +1,7 @@
 ## Block Stack
 ###블록 쌓기 게임
 
-##변경 전 문제점 1
+##변경 전 문제점 1 </br>
 ![problem 1](./img/block_problem1.png) </br>
 ![problem 2](./img/block_problem2.png) </br>
 
