@@ -2,8 +2,8 @@
 ###블록 쌓기 게임
 
 ##변경 전 문제점 1
-![problem 1](./img/block_ploblem1.png) </br>
-![problem 2](./img/block_ploblem2.png) </br>
+![problem 1](./img/block_problem1.png) </br>
+![problem 2](./img/block_problem2.png) </br>
 
 수정 전 문제점 우측 a, b[2] 라인이 그려져야할 도형의 1/2 위치에서 그려짐
 
