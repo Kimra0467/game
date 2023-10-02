@@ -2,8 +2,8 @@
 ###블록 쌓기 게임
 
 ##변경 전 문제점 1
-![problem 1](./img/변경전 문제점1.png)
-![problem 2](./img/변경전 문제점2.png)
+![problem 1](./img/block_ploblem1.png) </br>
+![problem 2](./img/block_ploblem2.png) </br>
 
 수정 전 문제점 우측 a, b[2] 라인이 그려져야할 도형의 1/2 위치에서 그려짐
 
@@ -11,10 +11,10 @@
 
 ##문제점 변경 후 게임 플레이 화면
 
-![intro](./img/blockstack_intro.png)
+![intro](./img/blockstack_intro.png) </br>
 ![blockstack1](./img/blockstack_1.png)
-![blcokstack2](./img/blockstack_2.png)
-![end](./img/blockstack_end.png)
+![blcokstack2](./img/blockstack_2.png) <br>
+![end](./img/blockstack_end.png) <br>
 
 getch와 kbhit
 kbhit 함수는 키보드의 입력 여부를 단순히 입력 버퍼만 확인하고 true랑 false값 리턴
