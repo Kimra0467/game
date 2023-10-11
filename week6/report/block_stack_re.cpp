@@ -39,12 +39,13 @@ int main(void)
 void intro_game(void)
 {
     system("cls");
-    printf("블록 쌓기\n\n");
-    printf("블록이 좌우로 움직일 때 스페이스키를 누르면\n");
-    printf("블록이 떨어져 바닥에 쌓입니다.\n\n");
-    printf("난이도 선택.\n");
-  	printf("1단계 매우쉬움 | 2단계 쉬움 | 3단계 보통 | 4단계 어려움 | 5단계 매우 어려움\n"); 
-    printf("난이도 설정 (1-5): ");
+    printf("\n");
+    printf("			 	 블록 쌓기\n\n");
+    printf("\n");
+    printf("\n");
+    printf("				난이도 선택\n\n");
+  	printf("  1단계 매우쉬움 | 2단계 쉬움 | 3단계 보통 | 4단계 어려움 | 5단계 매우 어려움\n\n\n"); 
+    printf("			난이도 설정 (1-5) : ");
      
     getch();
 }
