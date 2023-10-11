@@ -10,5 +10,5 @@
 
 리팩터링의 대표적인 예시, 필드 은닉, 메서드 추출, 타입 일반화, 메서드 이름 변경 등이 있다.
 
-출처 [출처](https://ko.wikipedia.org/wiki/%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81)
+리팩토링 [출처](https://ko.wikipedia.org/wiki/%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81)
 
