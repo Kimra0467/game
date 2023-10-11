@@ -13,6 +13,8 @@ https://github.com/Kimra0467/game/assets/87680279/49306b9b-bed2-41a7-a86c-2d1bb3
 변경 후 플레이 영상
 
 
-https://github.com/Kimra0467/game/assets/87680279/c00e0b29-7d17-43d3-b334-83296eb1a430
+
+https://github.com/Kimra0467/game/assets/87680279/910ff44d-aa7b-436c-9d2b-8a94dd1cca60
+
 
 
