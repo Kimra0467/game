@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>블록 피하기</title>
+<style>
+    
+#intro-screen, #game-over-screen {
+    position: absolute;
+    width: 480px;
+    height: 270px;
+    background: url('intro_screen.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/*game_over_screen의 추가 속성*/
+#game-over-screen {
+    background: #00000095; /* 반투명한 배경색 */
+    color: #ff0000;
+    display: none;
+}
+
+canvas {
+    border: 1px solid #d3d3d3;
+    background-color: #f1f1f1;
+    position: absolute;
+}
+
+</style>
+</head>
+<img id="happy_img" src="happy.png" style= "display: none">
+
+<body>
+<div id="intro-screen" onclick="startGame()">
+    <!-- <h3>화면을 클릭하여 게임을 시작하세요</h3> -->
+</div>
+<div id="game-over-screen" onclick="restartGame()">
+    <h2 id="final-score"></h2>
+</div>
+<script>
+var myGamePiece;
+var myObstacles = [];
+var myScore;
+var mySound;
+var myMusic;
+
+function startGame() {
+    var introScreen = document.getElementById('intro-screen');
+    introScreen.style.display = 'none';
+    myGamePiece = new component(30, 30, "red", 10, 120, "image");
+    mySound = new sound("bounce.mp3");
+    myMusic = new sound("gametheme.mp3");
+    myMusic.play();
+    myScore = new component("20px", "Consolas", "black", 280, 40, "text");
+    myGameArea.start();
+}
+
+function showGameOverScreen() {
+    var gameOverScreen = document.getElementById('game-over-screen');
+    gameOverScreen.style.display = 'flex';
+    document.getElementById('final-score').innerText =
+     "GAME OVER\n" + "SCORE : " + myGameArea.frameNo +"\nClick to RESTART";
+    myMusic.stop();
+}
+
+function restartGame() {
+    var gameOverScreen = document.getElementById('game-over-screen');
+    gameOverScreen.style.display = 'none';
+    myGameArea.clear();
+    myObstacles = [];
+    myGamePiece.changeImage("happy.png");
+    startGame();
+}
+
+
+var myGameArea = {
+    canvas: document.createElement("canvas"),
+    start: function () {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear: function () {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop: function () {
+        clearInterval(this.interval);
+        showGameOverScreen();
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.image = document.getElementById("happy");
+    if(type == "image"){
+        this.happyImage = document.getElementById("happy_img");
+        this.image = this.happyImage;
+        this.image.style.width = this.width +"px";
+        this.image.style.height = this.height + "px";
+    }
+    this.update = function () {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        }else if (type == "image") {
+            ctx.drawImage(this.image,this.x,this.y,this.width,this.height);
+
+        }else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+    this.changeImage = function(newImageSrc){
+        this.image.src = newImageSrc;
+    }
+    this.newPos = function () {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+    this.crashWith = function (otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    var newInterval;
+
+    if(myGameArea.frameNo <= 200){
+        newInterval = 20;
+    }else if(myGameArea.frameNo <= 400){
+        clearInterval(myGameArea.interval);
+        newInterval = 15;
+    }else if(myGameArea.frameNo <= 500){
+        clearInterval(myGameArea.interval);
+        newInterval = 10;
+    }else if(myGameArea.frameNo <= 600){
+        clearInterval(myGameArea.interval);
+        newInterval = 5;
+    }else if(myGameArea.frameNo <= 700){
+        clearInterval(myGameArea.interval);
+        newInterval = 3;
+    }else if(myGameArea.frameNo <= 1000){
+        clearInterval(myGameArea.interval);
+        newInterval = 2;
+    }else{
+        newInterval = 1;
+    }
+    if(myGameArea.interval !== newInterval){
+        clearInterval(myGameArea.interval);
+        myGameArea.interval = setInterval(updateGameArea, newInterval);
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            mySound.play();
+            myMusic.stop();
+            myGameArea.stop();
+            showGameOverScreen();
+            return;
+        }
+    }
+
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+
+    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+        x = myGameArea.canvas.width;
+        minHeight = 20;
+        maxHeight = 200;
+        height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+        myObstacles.push(new component(10, height, "green", x, 0));
+        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].speedX = -1;
+        myObstacles[i].newPos();
+        myObstacles[i].update();
+    }
+    myScore.text = "SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function () {
+        this.sound.play();
+    };
+    this.stop = function () {
+        this.sound.pause();
+    };
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
+    return false;
+}
+
+document.addEventListener("keydown", function (e) {
+    // 키보드 이벤트 처리: 방향키로 블럭 움직임
+    switch (e.keyCode) {
+        case 37: // 왼쪽 화살표
+            moveleft();
+            break;
+        case 39: // 오른쪽 화살표
+            moveright();
+            break;
+        case 38: // 위쪽 화살표
+            moveup();
+            break;
+        case 40: // 아래쪽 화살표
+            movedown();
+            break;
+    }
+});
+
+document.addEventListener("keyup", function (e) {
+    // 키보드 이벤트 처리: 방향키 뗄 때 블럭 정지
+    switch (e.keyCode) {
+        case 37:
+        case 39:
+            clearmoveX();
+            break;
+        case 38:
+        case 40:
+            clearmoveY();
+            break;
+    }
+});
+
+function moveup() {
+    myGamePiece.speedY = -1;
+}
+
+function movedown() {
+    myGamePiece.speedY = 1;
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1;
+}
+
+function moveright() {
+    myGamePiece.speedX = 1;
+}
+
+function clearmoveX() {
+    myGamePiece.speedX = 0;
+}
+
+function clearmoveY() {
+    myGamePiece.speedY = 0;
+}
+</script>
+</body>
+</html>
