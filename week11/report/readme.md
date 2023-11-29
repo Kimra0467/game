@@ -2,7 +2,7 @@
 
 canvas 게임 분석
 
-게임 화면
+## https://kimra0467.github.io/game/week11/report/canvas_game.html
 
 
 
