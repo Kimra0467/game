@@ -1,6 +1,6 @@
 # GAME Programming
 
-## 1주차 ~ 3주차
+## 1 ~ 3주차
 게임 프로그래밍에 쓰일 c++ 기본 코드  
 [1주차](https://github.com/Kimra0467/game/tree/main/week1)  
   
