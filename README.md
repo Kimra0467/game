@@ -2,11 +2,11 @@
 
 ## 1 ~ 3주차
 게임 프로그래밍에 쓰일 c++ 기본 코드  
-[1주차](https://github.com/Kimra0467/game/tree/main/week1)  
+[1주차](https://github.com/Kimra0467/game/tree/main/week1/class)  
   
-[2주차](https://github.com/Kimra0467/game/tree/main/week2)  
+[2주차](https://github.com/Kimra0467/game/tree/main/week2/class)  
   
-[3주차](https://github.com/Kimra0467/game/tree/main/week3)  
+[3주차](https://github.com/Kimra0467/game/tree/main/week3/class)  
   
 
 ## 4주차
