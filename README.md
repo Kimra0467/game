@@ -2,13 +2,9 @@
 
 ### 1주차 ~ 3주차
 게임 프로그래밍에 쓰일 c++ 기본 코드  
-
-  
-  [1주차](https://github.com/Kimra0467/game/tree/main/week1)
-  
-  [2주차](https://github.com/Kimra0467/game/tree/main/week2)
-  
-  [3주차](https://github.com/Kimra0467/game/tree/main/week3)
+[1주차](https://github.com/Kimra0467/game/tree/main/week1)  
+[2주차](https://github.com/Kimra0467/game/tree/main/week2)  
+[3주차](https://github.com/Kimra0467/game/tree/main/week3)  
 
 ### 4주차
 C++ 실습 과제 분석
