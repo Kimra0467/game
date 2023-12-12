@@ -1,6 +1,6 @@
 # GAME Programming
 
-### 1주차 ~ 3주차
+## 1주차 ~ 3주차
 게임 프로그래밍에 쓰일 c++ 기본 코드  
 [1주차](https://github.com/Kimra0467/game/tree/main/week1)  
   
@@ -9,24 +9,24 @@
 [3주차](https://github.com/Kimra0467/game/tree/main/week3)  
   
 
-### 4주차
+## 4주차
 C++ 실습 과제 분석  
 
 [4주차](https://github.com/Kimra0467/game/tree/main/week4/report)  
 
-### 6주차
+## 6주차
 C++ 실습 과제 업그레이드  
 
 [6주차](https://github.com/Kimra0467/game/tree/main/week6/report)  
 
-### 10주차
-canvas game 분석
+## 10주차
+canvas game 분석  
 
 [10주차](https://github.com/Kimra0467/game/tree/main/week11/report)  
 
 [게임 홈페이지](https://kimra0467.github.io/game/week11/report/canvas_game.html)  
 
-### 11주차
+## 11주차
 Canvas game 업그레이드  
 
 [11주차](https://github.com/Kimra0467/game/tree/main/week12/report)  
@@ -34,7 +34,7 @@ Canvas game 업그레이드
 [게임 홈페이지](https://kimra0467.github.io/game/week12/report/canvas_game_upgrade.html)  
 
 
-### 12주차
+## 12주차
 Unity 실습  
 BallNCube  
 
@@ -43,7 +43,7 @@ BallNCube
 [게임 홈페이지](https://kimra0467.github.io/game/week13/index.html)  
 
 
-### 13주차
+## 13주차
 Unity 실습  
 
 Game Object Test  
@@ -62,7 +62,7 @@ Character Move
 [게임 홈페이지](https://kimra0467.github.io/game/week14-1/index.html)  
 
 
-### 14주차
+## 14주차
 Unity 게임 분석 및 업그레이드  
 
 Zig-Zag game   
